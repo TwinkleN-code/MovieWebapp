@@ -1,0 +1,28 @@
+﻿@model DEPT_assignment.Models.Root
+
+<br /><br />
+<h2 style="color:gray;"> Welcome! </h2> <br />
+<p>Search a movie. <br>
+   Example: Spiderman<p/>
+@using(Html.BeginForm("Index", "Movie", FormMethod.Get)){
+	@Html.TextBox("search")<input type="submit" value="Search"/>
+}
+
+@if (Model.results != null)
+{
+	<br/>
+	<h3 style="color:blue;"> Found results: </h3>
+	<br/>
+	@foreach(var i in Model.results)
+	{
+		<p>Title: @i.title <br>
+		   Id: @i.id <br>
+		   Descryption: @i.description <br>
+		   <img src=@i.image width="400" height="500"> </p>
+		<br />
+	}
+}
+
+@{
+
+}
